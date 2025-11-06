@@ -1,4 +1,3 @@
-
 package com.example.review360
 
 import android.content.Context
@@ -73,7 +72,8 @@ class SimplePanoramaView @JvmOverloads constructor(
         val scaledW = bm.width * scale
         val scaledH = bm.height * scale
 
-        val gyroOffset = -yawRad * yawPixelsPerRad
+        // ✅ Инвертированное направление (естественное)
+        val gyroOffset = yawRad * yawPixelsPerRad
         var total = dragOffsetX + gyroOffset
 
         if (scaledW > 0f) {
